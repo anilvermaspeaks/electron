@@ -1,0 +1,25 @@
+{
+  "name": "electron-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anilvermaspeaks/electron.git"
+  },
+  "author": "anil verma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anilvermaspeaks/electron/issues"
+  },
+  "homepage": "https://github.com/anilvermaspeaks/electron#readme",
+  "devDependencies": {
+    "electron": "^13.1.8"
+  },
+  "dependencies": {
+    "fluent-ffmpeg": "^2.1.2"
+  }
+}
