@@ -1,5 +1,5 @@
 
-const { ipcRenderer } = window.electronApi;
+const { ipcRenderer, electronIpcOn } = window.electronApi;
 const btn = document.querySelector('#btn');
 const filesInput = document.querySelector("input[type='file']")
 btn.addEventListener('click', () => {
@@ -7,8 +7,6 @@ btn.addEventListener('click', () => {
     ipcRenderer.send('video:submit', videoPath)
 })
 
-console.log(ipcRenderer.on)
-
-// ipcRenderer.on('video:receive', (event, data) => {
-//     console.log(data)
-// })
+electronIpcOn('video:receive', (event, data) => {
+    console.log(data)
+})

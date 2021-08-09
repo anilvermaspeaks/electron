@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, ipcRenderer } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 const ffmpeg = require('fluent-ffmpeg');
 
@@ -20,7 +20,7 @@ app.whenReady().then(() => {
 
 ipcMain.on('video:submit', (event, videoPath) => {
     ffmpeg.ffprobe(videoPath, (err, metadata) => {
-        win.webContents.send('video:receive', metadata)
+        win.webContents.send('video:receive', metadata);
     })
 })
 

@@ -1,7 +1,24 @@
 const { contextBridge, ipcRenderer } = require('electron')
 
 contextBridge.exposeInMainWorld('electronApi', {
-    ipcRenderer
-})
+    ipcRenderer,
+    electronIpcOn(eventName, callback) {
+        ipcRenderer.on(eventName, callback)
+    },
+    // async invoke(eventName, ...params) {
+    //     return await ipcRenderer.invoke(eventName, ...params)
+    // },
 
-console.log(ipcRenderer)
+    // async shellOpenExternal(url) {
+    //     await shell.openExternal(url)
+    // },
+
+    // async shellOpenPath(file) {
+    //     await shell.openPath(file)
+    // },
+
+    // async shellTrashItem(file) {
+    //     await shell.trashItem(file)
+    // }
+
+})
