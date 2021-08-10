@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build":"electron-packager . electron --platform= win32 --asar"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,8 @@
   },
   "homepage": "https://github.com/anilvermaspeaks/electron#readme",
   "devDependencies": {
-    "electron": "^13.1.8"
+    "electron": "^13.1.8",
+    "electron-packager": "^15.3.0"
   },
   "dependencies": {
     "fluent-ffmpeg": "^2.1.2"
