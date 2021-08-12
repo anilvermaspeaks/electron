@@ -24,10 +24,16 @@ app.whenReady().then(() => {
     })
 })
 
-ipcMain.on('video:submit', (event, videoPath) => {
-    ffmpeg.ffprobe(videoPath, (err, metadata) => {
-        win.webContents.send('video:receive', metadata);
-    })
+ipcMain.on('video:submit', (event, video) => {
+    outputDir = video.path.split(video.name)[0];
+    const outputName = video.name.split('.')[0]
+    const outputPath = `${outputDir}${outputName}.mp4`
+    console.log(outputPath)
+    ffmpeg(video.path).output(outputPath).on('end', () => {
+        console.log('video converted')
+        // win.webContents.send('video:receive', metadata);
+    }).run();
+
 })
 
 
